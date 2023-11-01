@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-course",
+  "version": "1.0.0",
+  "description": "basic node.js examples",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfred951/nodejs-course.git"
+  },
+  "author": "Luis Gallego",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alfred951/nodejs-course/issues"
+  },
+  "homepage": "https://github.com/alfred951/nodejs-course#readme"
+}
