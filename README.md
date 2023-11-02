@@ -1,12 +1,19 @@
-# nodejs-course
+# TGL Node.js course - Node.js Libraries Examples
 
-Examples for Node.js TGL course
+This repository contains examples demonstrating the usage of the Node.js core libraries: `os`, `path`, and `fs`. These examples are all contained within the `index.js` file in the root folder.
 
-This repo contains example of the libraries included in Node.js:
-* Operative system (`os`)
-* System path routes management (`path`)
-* Filesystem access (`fs`)
+## Examples
 
-To run in node: `node index.js`
+- `index.js` - Contains examples showcasing the usage of the following Node.js core libraries:
+  - `os` - Provides operating system-related utility methods and properties.
+  - `path` - Offers utilities for working with file and directory paths.
+  - `fs` - Provides file system-related functionality for performing I/O operations on files.
 
-To run with nodemon nodemon: `npm run dev`
+Feel free to explore the `index.js` file to understand how to use these libraries and their various methods and properties.
+
+## Usage
+
+To run the examples, simply execute the `index.js` file using Node.js:
+
+```bash
+node index.js
