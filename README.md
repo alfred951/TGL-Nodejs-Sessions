@@ -1,4 +1,4 @@
-# TGL Node.js course - # Asynchronous Code Examples
+# TGL Node.js course - Asynchronous Code Examples
 
 This repository contains examples for working with asynchronous code in Node.js. The examples are located in the `asyncMethods` folder, which contains three files demonstrating different methods for handling asynchronous operations.
 
