@@ -2,13 +2,13 @@
   "name": "nodejs-course",
   "version": "1.0.0",
   "description": "basic node.js examples",
-  "main": "index.js",
+  "main": "src/server.js",
   "dependencies": {},
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
