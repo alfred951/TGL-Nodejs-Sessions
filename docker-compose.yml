@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  postgres-tgl:
+      image: "postgres"
+      container_name: postgres-tgl
+      ports:
+        - "5433:5432"
+      environment:
+        POSTGRES_USER: topgunlab
+        POSTGRES_PASSWORD: topgunlab
+        POSTGRES_DATABASES: topgunlab
+        HOSTNAME: topgunlab.postgres.db
+      volumes:
+      - postgresData:/var/lib/postgresql/data
+
+volumes:
+  postgresData:
+    external: true
+
+# docker ps
+
+#Crear volumen
+# docker volume create postgresData
+#Iniciar su docker compose 
+  # Ubicarse en la ruta donde este el archivo docker-compose.yml
+# docker-compose -p postgresTGL up -d
+
+#Detener
+# docker-compose -p postgresTGL down
