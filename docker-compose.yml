@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  # app:
+  #   build: .
+  #   ports:
+  #      - "3000:3000"
+  #   depends_on:
+  #     - postgres-tgl
   postgres-tgl:
       image: "postgres"
       container_name: postgres-tgl
@@ -10,13 +16,8 @@ services:
         POSTGRES_USER: topgunlab
         POSTGRES_PASSWORD: topgunlab
         POSTGRES_DATABASES: topgunlab
-        HOSTNAME: topgunlab.postgres.db
       volumes:
-      - postgresData:/var/lib/postgresql/data
-
-volumes:
-  postgresData:
-    external: true
+      - ./scripts:/docker-entrypoint-initdb.d
 
 # docker ps
 
