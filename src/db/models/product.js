@@ -36,7 +36,7 @@ const ProductSchema = {
   }
 }
 
-class Prodcut extends Model
+class Product extends Model
 {
   static associate() {}
 
@@ -51,4 +51,4 @@ class Prodcut extends Model
   }
 }
 
-module.exports = { PRODUCT_TABLE, ProductSchema, Prodcut}
+module.exports = { PRODUCT_TABLE, ProductSchema, Product}
