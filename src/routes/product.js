@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const ProductService = require('../services/product')
+const validateProduct = require('../middlewares/productMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware')
 
 const productService = new ProductService();
+
+// Controller or router level middleware
+router.use(authMiddleware)
 
 router.get('/', async (req, res) => {
   try {
@@ -14,7 +19,15 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+// Example of an endpoint throwing an unexpected error
+router.get('/error', (req, res, next) => {
+  const err = new Error('This is a simulated error');
+  next(err);
+});
+
+
+// Path level middleware
+router.post('/', validateProduct, async (req, res) => {
   try {
     const { name, price, currency, description } = req.body;
     await productService.saveNewProduct(name, price, currency, description)
@@ -29,13 +42,13 @@ router.patch('/:id', async (req, res) => {
   try {
     const productId = req.params.id;
     const { name, price, currency, description } = req.body;
-    await productService.updateProduct(productId, name, price, currency, description );
+    await productService.updateProduct(productId, name, price, currency, description);
     res.status(201).send('Product updated successfully')
 
   } catch (err) {
     console.error(err)
     res.status(500).send('Internal server Error')
-  } 
+  }
 });
 
 router.put('/:id', async (req, res) => {
@@ -56,7 +69,7 @@ router.put('/:id', async (req, res) => {
   } catch (err) {
     console.error(err)
     res.status(500).send('Internal server Error')
-  } 
+  }
 });
 
 router.delete('/:id', async (req, res) => {
@@ -67,7 +80,7 @@ router.delete('/:id', async (req, res) => {
   } catch (err) {
     console.error(err)
     res.status(500).send('Internal Server Error')
-  } 
+  }
 });
 
 module.exports = router;
