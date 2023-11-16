@@ -14,9 +14,9 @@ const sequelize = new Sequelize(URI, {
 
 setupModels(sequelize)
 
-// sequelize.sync({
-//   alter:true,
-//   logging: (message) => console.log(`[SYNC] : ${message}`)
-// })
+sequelize.sync({
+  alter: true,
+  logging: (message) => console.log(`[SYNC] : ${message}`)
+})
 
 module.exports = sequelize

@@ -1,14 +1,15 @@
 const { models } = require('../db/sequelize')
+const bcrypt = require('bcrypt');
 
 async function login(username, password) {
     try {
         const user = await models.Users.findOne({
             where: {
                 username,
-                password
             }
         });
-        if (!user) {
+        const passwordMatch = await bcrypt.compare(password, user.password)
+        if (!user || !passwordMatch) {
             throw new Error('Wrong username or password')
         }
         return user;
@@ -28,9 +29,11 @@ async function getUser(userId) {
 }
 
 async function saveNewUser(username, password) {
+    const hashedPassword = await bcrypt.hash(password, 10)
     const userCreated = await models.Users.create({
         username: username,
-        password: password,
+        password: hashedPassword,
+        role: 'admin'
     })
     console.log(userCreated)
 }
