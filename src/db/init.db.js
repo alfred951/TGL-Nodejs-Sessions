@@ -1,9 +1,9 @@
 const { Product, ProductSchema } = require('./models/product')
+const { User, UserSchema } = require('./models/user')
 
 function setupModels(sequelize) {
   Product.init(ProductSchema, Product.config(sequelize))
-
-  //Relaciones 1 a 1 - 1 a muchos - muchos a muchos 
+  User.init(UserSchema, User.config(sequelize))
 }
 
 module.exports = setupModels
