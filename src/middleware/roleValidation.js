@@ -1,10 +1,7 @@
-const userService = require('../services/user')
-
 const authorize = (requiredRole) => {
     return async (req, res, next) => {
-        const userId = req.session.userId;
         try {
-            const user = await userService.getUser(userId)
+            const user = req.user;
             if (user && user.role === requiredRole) {
                 next();
             } else {
